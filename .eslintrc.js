@@ -8,6 +8,7 @@ module.exports = {
     "globals": {
         "expect": true,
         "arraysAnswers": true,
+        "asyncAnswers": true,
         "flowControlAnswers": true,
         "functionsAnswers": true,
         "logicalOperatorsAnswers": true,

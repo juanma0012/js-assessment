@@ -16,12 +16,14 @@ recursionAnswers = {
    *
    * @returns {Number[]} The files under the directory dirName, including subdiretories.
    */
-  listFiles: function listFiles(data, dirName = '') {
+  listFiles: function listFiles(data, dirNameArg = '') {
+    let dirName = dirNameArg;
     if (dirName === '') {
       dirName = data.dirName;
     }
-    const findFiles = (directory, directoryName, countAll = false) => {
+    const findFiles = (directory, directoryName, countAllArg = false) => {
       let foundFiles = [];
+      let countAll = countAllArg;
       if (directoryName === directory.dirName || countAll) {
         foundFiles = foundFiles.concat(directory.files);
         countAll = true;
@@ -29,8 +31,9 @@ recursionAnswers = {
       if (data.subDirs) {
         let subDirIndex = 0;
         while (subDirIndex < directory.subDirs.length) {
-          foundFiles = foundFiles.concat(findFiles(directory.subDirs[subDirIndex], directoryName, countAll));
-          subDirIndex++;
+          foundFiles = foundFiles.concat(findFiles(directory.subDirs[subDirIndex],
+            directoryName, countAll));
+          subDirIndex += 1;
         }
       }
       return foundFiles;

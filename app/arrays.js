@@ -139,7 +139,7 @@ arraysAnswers = {
    * @returns {Number[]} A new array of numbers that contains the elements of arr squared.
    */
   square: function square(arr) {
-    return arr.map(item => Math.pow(item, 2));
+    return arr.map(item => item ** 2);
   },
 
   /**
@@ -151,7 +151,7 @@ arraysAnswers = {
    */
   findAllOccurrences: function findAllOccurrences(arr, target) {
     const outcome = [];
-    for (let i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i += 1) {
       if (arr[i] === target) {
         outcome.push(i);
       }
